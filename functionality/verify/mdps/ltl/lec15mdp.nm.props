@@ -15,3 +15,18 @@
 	
 	// RESULT: 0.25
 	Pmin=? [ G F s=7 ];
+
+	// RESULT: 1
+	Pmax=? [ G{inf >= 0.45} (s=5 & (X s=7))]
+
+	//RESULT: 0.25
+	Pmin=? [G {sup <= 0.2} s=5 ]
+
+	//RESULT: 0.75
+	Pmax=? [G {inf >= 0.5} s=4]
+
+	//RESULT: 0.75
+	Pmax=? [G {sup >= 1.0} s=6]
+
+	//RESULT: 0.0
+	Pmax=? [G {inf > 0.0} s=2]

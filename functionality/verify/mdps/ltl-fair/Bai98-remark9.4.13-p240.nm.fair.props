@@ -2,3 +2,12 @@
 	Pmin=? [ (X "b") => (G "a") ];
 	// RESULT: 1
 	Pmax=? [ (X "b") => (G "a") ];
+
+	// RESULT: 1
+	Pmin =? [(F G {sup >= 0.5} s=2) | (G {inf >= 0.4} s=3)]
+	// RESULT: 1
+	Pmax=? [G {inf > 0.4} s=2]
+	// RESULT: 0
+	Pmin=? [G {inf > 0.5}(s=1 | s=2)]
+	// RESULT: 1
+	Pmax=? [G {inf >= 0.75} ((s=2 & (F s=1))|(X s=3))]

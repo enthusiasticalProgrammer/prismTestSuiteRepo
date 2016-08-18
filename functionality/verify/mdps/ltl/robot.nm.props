@@ -3,3 +3,18 @@ Pmax=? [ G F "goal1" ]
 
 // RESULT: 0.1
 Pmax=? [ (G !"hazard")&(G F "goal1") ]
+
+// RESULT: 0.0
+Pmax=? [G {inf >0.0} "hazard"]
+
+// RESULT: 1.0
+Pmax=? [G {inf >= 0.8} s=2]
+
+// RESULT: 0.1
+Pmin=? [G {inf > 0.3} s=2]
+
+// RESULT: 0.8
+Pmax=? [G {sup >= 0.1} s=3]
+
+// RESULT: 0.0
+Pmax=? [G {sup > 0.3} s=3]

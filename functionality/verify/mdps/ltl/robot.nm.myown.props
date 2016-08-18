@@ -1,0 +1,15 @@
+// RESULT: 0.5
+Pmax=? [ G F "goal1" ]
+
+// RESULT: 0.1
+Pmax=? [ (G !"hazard")&(G F "goal1") ]
+
+// RESULT: 0.5
+Pmax=? [ G {inf >= 0.1}  "goal1" ]
+
+// RESULT: 0.5
+Pmax=? [G {sup >= 0.5} "goal1" ]
+
+// RESULT: 0.1
+Pmax=? [G {inf <0.00001} "goal1"]
+

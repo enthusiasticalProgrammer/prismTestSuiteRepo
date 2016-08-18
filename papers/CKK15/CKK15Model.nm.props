@@ -1,0 +1,47 @@
+//RESULT: true
+multi(R{"first"}>=1.1 [ S ], R{"second"}>=0.5 [ S ], P>=0.8 [ R{"first"}>=0.5 [ S ] ], P>=0.8 [ R{"second"}>=0.5 [ S ] ])
+
+//RESULT: true
+mjoint(R{"first"}>=1.1 [ S ], R{"second"}>=0.5 [ S ], P>=0.8 [ R{"first"}>=0.5 [ S ] ], P>=0.8 [ R{"second"}>=0.5 [ S ] ])
+
+//RESULT: true
+mjoint(R{"first"}>=0.5 [S], R{"second"}>=0.5 [S] )
+
+//RESULT: 1.52
+mjoint(R{"first"}max=? [S], P>= 0.8 [R{"second"}>= 0.1[S] ])
+
+//RESULT: true
+multi(R{"first"}>=1.1 [S])
+
+//RESULT: true
+multi(R{"first"}>=1.1 [S], R{"second"}>=0.5 [S])
+
+//RESULT: true
+multi(P>=0.8 [R{"first"}>=0.5 [S] ])
+
+//RESULT: true
+multi(R{"first"}>=0.9 [ S ], P>=0.1 [ R{"first"}>=2 [ S ] ], P>=0.9 [ R{"second"}>=0.3 [ S ] ])
+
+//RESULT: true
+mjoint(R{"first"}>=0.9 [ S ], R{"second"}>=0.4 [ S ], P>=0.1 [ R{"first"}>=0.2 [ S ] ], P>=0.9 [ R{"second"}>=0.25 [ S ] ])
+
+//RESULT: false
+multi(R{"first"}>=1.2 [ S ], R{"second"}>=0.5 [ S ], P>=0.8 [ R{"first"}>=0.5 [ S ] ], P>=0.8 [ R{"second"}>=0.5 [ S ] ])
+
+//RESULT: 1.0
+Pmax=? [(G {inf >= 1.0} state=v) & (G F state=w) ]
+
+//RESULT: 1.0
+Pmax=? [(G {inf >= 1.0} state=u) | (G {inf >= 1.0} state=w)]
+
+//RESULT: 0
+Pmax=? [(G {inf >= 2.0} state=u) | (G {inf >= 1.1} state=w)]
+
+//RESULT: 1.0
+Pmax=? [(G {inf >= 0.3} state=w) & (G {sup <= 0.7} state=v) ]
+
+//RESULT: 1.0
+Pmax=? [(state=s) U ((G {sup >= 1.0 } state=v))]
+
+//RESULT: 1.0
+Pmax=? [(G {inf >= 1.0} state=u) | ((G {inf >= 0.5} state=v) & (G {inf >= 0.5} state=w))]

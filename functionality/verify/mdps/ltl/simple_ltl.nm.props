@@ -14,3 +14,15 @@ Pmax=? [ G (s=2 | (F s=3)) ]
 
 // RESULT: 0.8
 Pmax=? [ (X s=2) => (G s=3) ]
+
+// RESULT: 1.0
+Pmax=? [(G {inf >=0.4} s=2) | (G {sup >= 0.3} s=3)]
+
+// RESULT: 0.5
+Pmin=? [G {sup >= 0.5} s=2]
+
+//RESULT: 1.0
+Pmin=? [G {inf < 0.1} s=1]
+
+//RESULT: 0.8
+Pmax=? [G {sup <= 0.9} s=2]

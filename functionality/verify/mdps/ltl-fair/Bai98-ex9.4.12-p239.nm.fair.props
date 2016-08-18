@@ -2,3 +2,16 @@
 	Pmin=? [ F ("a" & (X "b")) ];
 	// RESULT: 0.5
 	Pmax=? [ F ("a" & (X "b")) ];
+
+	//RESULT: 1.0
+	Pmin=? [G {inf >= 1.0} "b"]
+	//RESULT: 1.0
+	Pmax=? [G {sup >= 0.5} "b"]
+	//RESULT: 1.0
+	Pmax=? [G {inf <= 0.2} "b"]
+	//RESULT: 1.0
+	Pmax=? [G {sup <= 0.3} "a"]
+	//RESULT: 0.0
+	Pmin=? [G {sup <= 0.4} "a"]
+	//RESULT: 0.0
+	Pmin=? [G {inf > 0.3} "b"]
